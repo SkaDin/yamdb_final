@@ -1,5 +1,4 @@
 from django.db.models import Avg
-
 from api.permissions import (AdminOrReadOnly, AdminOrSuperUserPermissions,
                              AdminPermissions, IsAdminOrIsSelf,
                              ReviewPermission, )
@@ -12,7 +11,6 @@ from api.serializers import (CategorySerializer, CommentSerializer,
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
-
 from rest_framework.filters import SearchFilter
 from rest_framework.mixins import (
     CreateModelMixin,
@@ -29,7 +27,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 from rest_framework_simplejwt.tokens import RefreshToken
 from reviews.models import Category, Genre, Review, Title
-from .filters import TitleFilter
+from api.filters import TitleFilter
 
 User = get_user_model()
 
