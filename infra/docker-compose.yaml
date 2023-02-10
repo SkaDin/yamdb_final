@@ -8,10 +8,10 @@ services:
     env_file:
       - ./.env
   web:
-    image: skadinas/yamdb
+    image: skadinas/yamdb:latest
     build: 
       context: ../
-      dockerfile: api_yamdb/Dockerfile
+      dockerfile: Dockerfile
     restart: always
     volumes:
       - static_value:/app/static/
