@@ -1,4 +1,4 @@
-https://github.com/SkaDin/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg
+(https://github.com/SkaDin/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 ## API_YAMDB
 #### REST API проект для сервиса YaMDb — сбор отзывов о фильмах, книгах или музыке.
@@ -6,11 +6,13 @@ https://github.com/SkaDin/yamdb_final/actions/workflows/yamdb_workflow.yml/badge
 ### Описание
 #### Проект YaMDb собирает отзывы пользователей на произведения. Произведения делятся на категории: «Книги», «Фильмы», «Музыка». Список категорий может быть расширен (например, можно добавить категорию «Изобразительное искусство» или «Ювелирка»).
 
+
 #### Используемые технологии:
 * Python 3.8
 * Django 3.2
 * Django Rest Framework 3.12.4
 * Docker 20.10.23
+* CI и CD 
 
 ### Как запустить проект:
 #### Все описанное ниже относится к ОС Linux. Клонируем репозиторий и переходим в него:
