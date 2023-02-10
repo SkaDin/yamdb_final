@@ -9,9 +9,6 @@ services:
       - ./.env
   web:
     image: skadinas/yamdb:latest
-    build: 
-      context: ../
-      dockerfile: Dockerfile
     restart: always
     volumes:
       - static_value:/app/static/
