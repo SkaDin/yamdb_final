@@ -87,11 +87,11 @@ docker-compose exec web python manage.py createsuperuser
 ```
 docker-compose exec web python manage.py dumpdata > dumpPostrgeSQL.json
 ```
-#### Останавливаем контейнеры:
+### Останавливаем контейнеры:
 ```
 docker-compose down -v
 ```
-#### Шаблон наполнения .env (не включен в текущий репозиторий) расположенный по пути infra/.env
+### Шаблон наполнения .env (не включен в текущий репозиторий) расположенный по пути infra/.env
 ```
 DB_ENGINE=django.db.backends.postgresql
 DB_NAME=postgres
@@ -101,7 +101,7 @@ DB_HOST=db
 DB_PORT=5432
 SECRET_KEY=<секретный ключ проекта django>
 ```
-#### Основные используемые библиотеки:
+### Основные используемые библиотеки:
 ```
 asgiref==3.2.10
 Django==2.2.16
@@ -114,8 +114,8 @@ PyJWT==2.1.0
 pytz==2020.1
 sqlparse==0.3.1 
 ```
-### Автор проекта: 
+## Автор проекта: 
 SkaDin(Сушков Денис)
 
-#### Документация API YaMDb
+### Документация API YaMDb
 ```Документация доступна по эндпойнту: http://<IP-сервера>/redoc/ ```
