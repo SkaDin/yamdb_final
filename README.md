@@ -16,7 +16,7 @@
 * CI и CD 
 
 
-[![Python](https://www.python.org/static/img/python-logo-large.c36dccadd999.png?1576869008)](https://www.python.org/)
+[![Python](https://www.python.org/)
 ## Как запустить проект:
 ### Все описанное ниже относится к ОС Linux и выполняется от имени администратора. Клонируем репозиторий и переходим в него:
 
