@@ -1,65 +1,89 @@
 ![](https://github.com/SkaDin/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
-## API_YAMDB
-#### REST API проект для сервиса YaMDb — сбор отзывов о фильмах, книгах или музыке.
+# API для проекта YaMDB в Docker-контейнере
 
-### Описание
-#### Проект YaMDb собирает отзывы пользователей на произведения. Произведения делятся на категории: «Книги», «Фильмы», «Музыка». Список категорий может быть расширен (например, можно добавить категорию «Изобразительное искусство» или «Ювелирка»).
+## Описание
+### Проект YaMDb собирает отзывы пользователей на произведения. Произведения делятся на категории: «Книги», «Фильмы», «Музыка». Список категорий может быть расширен (например, можно добавить категорию «Изобразительное искусство» или «Ювелирка»). Сайт не предоставляет прямой доступ или ссылки для непосредственного ознакомления с произведениями.
 
-
-#### Используемые технологии:
+## Проект доступен по [Адресу](http://84.201.152.177/)
+    Может быть недоступен в связи с прекращением обслуживания.
+    
+### Используемые технологии:
 * Python 3.8
 * Django 3.2
 * Django Rest Framework 3.12.4
 * Docker 20.10.23
 * CI и CD 
 
-### Как запустить проект:
-#### Все описанное ниже относится к ОС Linux. Клонируем репозиторий и переходим в него:
+## Как запустить проект:
+### Все описанное ниже относится к ОС Linux и выполняется от имени администратора. Клонируем репозиторий и переходим в него:
 
 ```
-git clone git@github.com:SkaDin/infra_sp2.git
+git clone git@github.com:SkaDin/yamdb_final.git
 ```
+### Выполнить вход на удаленный сервер и установить docker на сервер: 
 ```
-cd infra_sp2
-cd api_yamdb
+apt install docker.io 
 ```
-#### Создаем и активируем виртуальное окружение:
-```
-python3 -m venv venv
-. /venv/bin/activate
-python -m pip install --upgrade pip
-```
-#### Устанавливаем зависимости из requirements.txt:
+### Установить docker-compose на сервер:
 
 ```
-pip install -r requirements.txt
+curl -SL https://github.com/docker/compose/releases/download/v2.16.0/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 ```
-#### Переходим в папку с файлом docker-compose.yaml:
+### Отредактировать и cкопировать файлы docker-compose.yml и nginx.conf из директории infra на сервер:
 
 ```
-cd infra
+scp docker-compose.yml <username>@<host>:/home/<username>/docker-compose.yml
+
+scp nginx.conf <username>@<host>:/home/<username>/nginx.conf
 ```
-#### Поднимаем контейнеры (infra_db_1, infra_web_1, infra_nginx_1):
+### Добавить в Secrets GitHub переменные окружения для работы :
 ```
-docker-compose up -d --build
+DB_ENGINE=<django.db.backends.postgresql>
+DB_NAME=<имя базы данных postgres>
+DB_USER=<пользователь бд>
+DB_PASSWORD=<пароль>
+DB_HOST=<db>
+DB_PORT=<5432>
+
+DOCKER_PASSWORD=<пароль от DockerHub>
+DOCKER_USERNAME=<имя пользователя>
+
+SECRET_KEY=<секретный ключ проекта django>
+
+USER=<username для подключения к серверу>
+HOST=<IP сервера>
+PASSPHRASE=<пароль для сервера, если он установлен>
+SSH_KEY=<ваш SSH ключ (для получения команда: cat ~/.ssh/id_rsa)>
+
+TELEGRAM_TO=<ID чата, в который придет сообщение>
+TELEGRAM_TOKEN=<токен вашего бота>
+
 ```
-#### Выполняем миграции:
+### Workflow состоит из четырёх шагов:
+1. Проверка кода на соответствие PEP8.
+2. Сборка и отправка образа на DockerHub.
+3. Автоматический деплой на удаленный сервер.
+4. Отправка уведомления в телеграм-чат.
+
+### После успешной сборки выполнить следующие действия (только при первом деплое):
+### Провести миграцию внутри контейнера(собранного из образа):
 ```
 docker-compose exec web python manage.py migrate
 ```
-```
-docker-compose exec web python manage.py migrate --run-syncdb
-```
-#### Собираем статику:
+### Собираем статику:
 ```
 docker-compose exec web python manage.py collectstatic --no-input
 ```
-#### Создаем суперпользователя:
+### Создаем суперпользователя:
 ```
 docker-compose exec web python manage.py createsuperuser
 ```
-#### Создаем дамп базы данных (нет в текущем репозитории):
+### Заполняем базу данными
+
+### Создаем дамп базы данных (нет в текущем репозитории):
 ```
 docker-compose exec web python manage.py dumpdata > dumpPostrgeSQL.json
 ```
@@ -75,6 +99,7 @@ POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 DB_HOST=db
 DB_PORT=5432
+SECRET_KEY=<секретный ключ проекта django>
 ```
 #### Основные используемые библиотеки:
 ```
@@ -93,4 +118,4 @@ sqlparse==0.3.1
 SkaDin(Сушков Денис)
 
 #### Документация API YaMDb
-```Документация доступна по эндпойнту: http://localhost/redoc/ ```
+```Документация доступна по эндпойнту: http://<IP-сервера>/redoc/ ```
