@@ -9,12 +9,12 @@
     Может быть недоступен в связи с прекращением обслуживания.
     
 ### Используемые технологии:
-* | Python 3.8 |  [![Pyton](https://img.icons8.com/color/1x/python--v2.png)](https://www.python.org/) |
+* Python 3.8 [![Python](https://camo.githubusercontent.com/eb61c0a4e1607e8052a9feb827408d8315a08b148089601fbe8dc3b0a8a466ff/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d507974686f6e2d3436343634363f7374796c653d666c61742d737175617265266c6f676f3d507974686f6e)](https://www.python.org/)
 * Django 3.2
 * Django Rest Framework 3.12.4
 * Docker 20.10.23
 * CI и CD 
-
+[![Pyton](https://img.icons8.com/color/1x/python--v2.png)](https://www.python.org/) 
 
 ## Как запустить проект:
 ### Все описанное ниже относится к ОС Linux и выполняется от имени администратора. Клонируем репозиторий и переходим в него:
