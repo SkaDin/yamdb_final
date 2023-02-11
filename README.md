@@ -9,12 +9,12 @@
     Может быть недоступен в связи с прекращением обслуживания.
     
 ### Используемые технологии:
-* Python 3.8 [![Python](https://www.python.org/static/img/python-logo.png)](https://www.python.org/)
+* Python 3.8 
 * Django 3.2
 * Django Rest Framework 3.12.4
 * Docker 20.10.23
 * CI и CD 
-
+![[Python](https://www.python.org/static/img/python-logo.png)](https://www.python.org/)
 ## Как запустить проект:
 ### Все описанное ниже относится к ОС Linux и выполняется от имени администратора. Клонируем репозиторий и переходим в него:
 
