@@ -9,7 +9,7 @@
     Может быть недоступен в связи с прекращением обслуживания.
     
 ### Используемые технологии:
-* Python 3.8 [![Pyton](https://img.icons8.com/color/1x/python--v2.png)](https://www.python.org/)
+* Python 3.8                                                   [![Pyton](https://img.icons8.com/color/1x/python--v2.png)](https://www.python.org/)
 * Django 3.2
 * Django Rest Framework 3.12.4
 * Docker 20.10.23
