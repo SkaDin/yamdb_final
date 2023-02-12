@@ -9,6 +9,7 @@ services:
       - ./.env
   web:
     image: skadinas/yamdb:latest
+    build: /app/ .
     restart: always
     volumes:
       - static_value:/app/static/
@@ -31,6 +32,7 @@ services:
     depends_on:
       - web
 
-volumes: 
+volumes:
+  db:
   static_value:
   media_value:
