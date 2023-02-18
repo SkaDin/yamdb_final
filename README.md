@@ -1,4 +1,4 @@
-![](https://github.com/SkaDin/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+![](https://github.com/SkaDin/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg?event=push)
 
 # API для проекта YaMDB в Docker-контейнере
 
